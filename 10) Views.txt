@@ -1,0 +1,45 @@
+Las vistas es una forma alternativa que nos ayuda a mostrar 
+varios datos de varias tablas o de una consulta, estas vistas 
+son una tabla virtual que almacena la consulta y que ademas no 
+estan almacenados en la base de datos como un objeto, entre 
+las formas que tenemos de crear vistas tenemos:
+
+* Vista volatil: Consulta la informacion en tiempo real 
+
+* Vista materializada: Consulta informacion guardada al 
+momento de generar la vista 
+
+estas se crean en la seccion de vistas materializadas 
+(para vistas materializadas) y vistas para vista volatiles 
+y de alli creamos la consulta
+
+Ejemplo vv:
+CREATE OR REPLACE VIEW public.rango_view
+AS
+    SELECT *,
+        CASE
+        WHEN fecha_nacimiento > '2015-01-01' THEN
+            'Mayor'
+        ELSE
+            'Menor'
+        END AS tipo
+    FROM pasajero ORDER BY tipo;
+ALTER TABLE public.rango_view OWNER TO postgres;
+
+y para mostrarla solo hacemos:
+SELECT * FROM public.rango_view;
+
+ejemplo vm:
+CREATE MATERIALIZED VIEW public.despues_noche_mview
+AS
+    SELECT * FROM viaje WHERE inicio > '22:00:00';
+WITH NO DATA;
+ALTER TABLE public.despues_noche_mview OWNER TO postgres;
+
+para mostrarla solo hacemos:
+SELECT * FROM despues_noche_mview;
+
+y luego le damos refresh:
+REFRESH MATERIALIZED VIEW despues_noche_mview;
+
+esto es para actualizar la vista materializada

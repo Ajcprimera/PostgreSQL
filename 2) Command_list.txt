@@ -1,0 +1,63 @@
+Entre los comandos mas comunes tenemos:
+
+1) Acceder a la consola de postgre:
+    psql -U postgres -W
+
+2) Visualizar los comandos \ de postgre:
+    \?
+
+3) Enlistar todas la bases de datos:
+    \l
+
+4) Cambiar a otra base de datos:
+    \c nombre_de_la_base_de_datos
+
+5) Ver todos los comandos SQL de postgre:
+    \h 
+
+6) Describir una tabla de la base de datos:
+    \d nombre_de_la_tabla
+
+7) Ver las tablas de una base de datos:
+    \dt 
+
+8) Ver como se ejecuta un comando SQL:
+    \h nombre_de_la_funcion
+
+9) Cancelar todo lo que hay en la pantalla:
+    Ctrl + c
+
+10) Ver la version de postgre instalada, colocar el ";"
+    SELECT version();
+
+11) Volver a ejecutal la funcion heha anteriormente
+    \g 
+
+12) Inicializa un contador de tiempo para que la consola 
+el tiempo de cada ejecucion
+    \timing
+
+13) Limpiar la pantalla de la consola 
+    Ctrl + l
+
+14) Listar los esquemas de la base datos actual
+    \dn 
+
+15) Listar las vistas de la base de datos actual
+    \dv
+
+16) Listar los usuarios y sus roles de la base de datos actual
+    \du 
+
+17) Ver el historial de comandos ejecutados 
+    \s 
+
+18) Guardar el historial de comandos ejecutados en un archivo
+de texto plano 
+    \s nombre_del_archivo
+
+19) Ejecutar los comandos desde un archivo 
+    \i nombre_del_archivo
+
+20) Cerrar la consola 
+    \q 

@@ -1,0 +1,26 @@
+- Postgre es un motor de base de datos, el permite estructurar
+toda la base de datos en un servidor, ademas de ser open 
+source 
+
+El Postgre sigue un estandar llamado acid:
+
+* A(Atomicidad): Nos ayuda a separar las funciones de una base 
+de datos en pequeñas tareas, de modo que al ejecutar todas las
+tareas y todas corren bien, esta perfecto. sin embargo, si 
+una de estas tareas fallan, este deshace los cambiois de las
+que habian pasado.
+
+* C(Consistencia): Se refiere a todo lo que se desarrollo con 
+respecto al objeto relacional, el cual si tenemos 2 tablas 
+que estan relacionadas por llaves primarias, foraneas y 
+la consistencia sisgnifica que tienen una congruencia en
+los datos entre si
+
+* I(Aislamiento): Permite ejecutar varias tareas al mismo tiempo,
+lo cual nos permite tener aisladas las diferentes funciones que
+se estan haciendo
+
+* D(Durabilidad): Nos permite tener la seguridad de la informacion
+no se va a perder, si oceurre algun fallo catastrofico, ya 
+que postgre guarda la informacion en una bitacora, logrando
+recuperar la informacion

@@ -1,0 +1,54 @@
+Entre estas funciones tenemos: 
+
+* COALESCE: te permite comparar 2 valores y retornar cual de 
+los 2 no es nulo dentro de los parametros que vayamos pasando
+
+Ejemplo:
+SELECT id, COALESCE (nombre, 'No aplica') AS nombre, direccion_residencia, fecha_nacimiento
+FROM public.pasajeros WHERE id = 1;
+
+Aqui estamos diciendo que si el nombre es null que retorne que 
+no aplica y ademas si no queremos que nos cambie el nombre de 
+la consulta colocamos el AS nombre_de_la_columna
+
+* NULLIF: te permite comparar 2 valores y retorna si ambos 
+iguales (null)
+
+Ejemplo:
+SELECT NULLIF (0, 0);
+
+Aqui estamos diciendo si el argumento 1 es igual al argumento 
+2 y si es asi retorna NULL
+
+* GREATEST: compara un arreglo de valores y retorna el mayor 
+
+Ejemplo:
+SELECT GREATEST (1,2,5,7,9,11,3);
+
+Aqui estamos pasando un arreglo de valores y este el mayor de 
+estos valores
+
+* LEAST: compara un arreglo de valores y retorna el menor
+
+Ejemplo:
+SELECT GREATEST (1,2,5,7,9,11,3);
+
+Aqui estamos pasando un arreglo de valores y este el menor de 
+estos valores
+
+* BLOQUES ANONIMOS: te permite ingresar condicionales dentro
+de una consulta de bases de datos 
+
+Ejemplo: 
+SELECT id, nombre, direccion_residencia, fecha_nacimiento,
+CASE 
+WHEN fecha_nacimiento > '2015-01-01' THEN 
+'NIÑO'
+ELSE 
+'MAYOR'
+END 
+FROM public.pasajeros;
+
+Aqui estamos diciendo que si la fecha_nacimiento es mayor a 
+la fecha que estamos especificando, esta va retornar 'niño' 
+en caso contrario 'mayor'

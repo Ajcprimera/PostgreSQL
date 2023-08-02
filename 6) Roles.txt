@@ -1,0 +1,33 @@
+Los roles son independientes de las bases de datos y le podemos 
+asignar que es lo que queremos que haga ese rol, la manera para
+crear un rol es la sgte:
+
+CREATE ROLE usuario_consulta;
+
+aqui estanmos diciendo que cree un rol bajo el nombre que se 
+muestra arriba, una vez creado debemos asignarle un acceso y 
+una contraseña 
+
+ALTER ROLE usuario_consulta WITH LOGIN; luego 
+ALTER ROLE usuario_consulta WITH PASSWORD 'nuestraContraseña';
+
+tambie hay otra manera de crearlo mediante el pgadmin de
+worpress mediante los sgte comandos 
+
+CREATE ROLE usuario_consulta WITH
+  LOGIN
+  NOSUPERUSER
+  NOCREATEDB
+  NOCREATEROLE
+  INHERIT
+  NOREPLICATION
+  CONNECTION LIMIT -1
+  PASSWORD'1234';
+
+ahora para agregar los privilegios al usuario hacemos lo sgte:
+
+GRANT INSERT, SELECT, UPDATE ON TABLE public.estacion TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.pasajero TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.trayecto TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.tren TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.viaje TO usuario_consulta;

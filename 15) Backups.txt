@@ -1,0 +1,33 @@
+Esto  nos ayuda a crear copias de seguridad para que de esa 
+si ocurre algun fallo catastrofico, esta nos permita restaurar 
+la base de datos, para hacer clic derecho y seleccionar 
+Backups de la DB. Luego configuramos los parametros de la copia: 
+
+* Agregar un nombre a la copia
+- Formatos del backup: permite configurar el tipo de archivo
+ * Custom: Un formato propio de Postgres
+ * Tar: Un archivo comprimido que contiene la estructura de la BD
+ * Plain: SQL plano
+ * Directory: Estructura sin comprimir
+* Comprenssion ratio: cantidad de veces que el ciclo de 
+compresion se ejecuta para que quede un archivo mas pequeño 
+(comprimido)
+* Encoding: puede dejarse como predeterminada (UTF_8)
+* Number of job: asigna la cantidad de hilos que tiene el 
+procesador. La asignacion la hace pgAdmin.
+* Role name: asigna el usuario que va a ser dueño de ese 
+dump (copia) . Por defecto asigna al usuario postgres
+* En la pestaña de agregar el nombre, presionamos boton 
+de archivos y ubicamos la direccion donde deseamos guardar 
+la copia.
+
+En la pestaña de Data/Object nos ayuda a que si queremos pasar 
+toda la informacion de la DB entre otros muchos parametros para 
+crear la copia (leer la documentacion que se encuentra clicando 
+el signo de interrogacion)
+
+Para restaurar los datos de la DB hacmoes lo sgte:
+
+* Creamos la nueva BD.
+* clic derecho sobre la BD y seleccionamos Restore
+* En Filename seleccionamos la copia, y luego restore

@@ -1,0 +1,15 @@
+Para la creacion de las llaves foraneas tenemos diferentes tipos
+que nos permite configurar la llaves foraneas
+
+* NO ACTION: No hacer nada
+
+* RESTRICT: Decirle a Postgres que no podemos permitir que la tabla cambie algo.
+
+* CASCADE: Si cambio la tabla de origen, la tabla destino tambien cambia.
+
+* SET NULL quiere decir que nuestra columna en esa fila va a dejar de tener por 
+ejemplo el ID que tenia asociado un 77 y va a convertirse en NULL. Esto por que 
+la tabla destino recibe un cambio y le decimos aPostgres que lo ponga en nulo.
+
+* SET DEFAULT: Si hay un cambio en la tabla origen nuestra tabla destino ponga 
+un valor predeterminado. En un ejemplo un id podra quedar NULL.

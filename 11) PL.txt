@@ -1,0 +1,49 @@
+Pl (procedural language) nos permite desarrollar codigo 
+directamente en el motor de la base de datos, la estructura 
+de un pl se compone de declaracion + uso de variable + codigo 
++ fin + retorno de variables o sin retornarlos, el codigo 
+se ejecuta con la palabra DO $$ BEGIN --insert código here 
+END $$
+
+Ejemplo de declaracion de bloque de codigo con plsql:
+DO $$ 
+    DECLARE
+        rec record;
+        contador integer :=0;
+    BEGIN 
+        --recorre  tabla pasajero y lo guarda en la variable rec
+        FOR rec IN SELECT * FROM pasajero LOOP 
+            RAISE NOTICE 'Un pasajero se llama',rec.nombre;
+            contador := contador + 1;
+        END LOOP;
+        RAISE NOTICE 'cantidad de registros:    %', contador;
+    END 
+$$
+
+Ejemplo creando una funcion sql:
+CREATE FUNCTION  consulta_usuarios() 
+    RETURNS void
+    LANGUAGE 'plpgsql';
+AS $BODY$ 
+    DECLARE
+        rec record;
+        contador integer :=0;
+    BEGIN 
+        --recorre  tabla pasajero y lo guarda en la variable rec
+        FOR rec IN SELECT * FROM pasajero LOOP 
+            RAISE NOTICE 'id: %     ,Nombre: %      ',
+                        rec.id,rec.nombre;
+            contador := contador + 1;
+        END LOOP;
+        RAISE NOTICE 'cantidad de registros:    %', contador;
+    END 
+$BODY$
+
+para llamar la funcion simplemente hacemos lo sgte:
+SELECT consulta_usuarios()
+
+Nota: tambien podemos crear las funciones en la seccion de 
+funciones
+
+Nota: RAISE NOTICE ‘message’, esta sentencia es para enviar 
+un mensaje en el log de postgres

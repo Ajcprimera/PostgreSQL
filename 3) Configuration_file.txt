@@ -1,0 +1,19 @@
+Los archivos de configuracion son los sgtes:
+
+
+* postgresql.conf: Es la configuracion general de postgre, 
+ademas de tener multiples opciones referentes a direcciones 
+de coneccion de entrada, memoria en uso, etc
+* pg_hba.conf: Muestra los roles de los usuarios como los
+tipos de acceso a la base de datos 
+* pg.ident.conf: Permite realizar el mapeo de usuarios. 
+Permite definir roles a usuarios del sistema operativo 
+donde se ejecuta postgres
+Estos archivos de configuracion los puedes encontrar mediante 
+un query en la base de datos, ya que depende del sistema 
+operativo
+    SHOW config_file;
+
+Nota: es recomendable leer la documentacion de los archivos 
+para saber que configurar, ademas de hacer una copia de ellos 
+si configuramos y dañamos los archivos.

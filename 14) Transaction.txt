@@ -1,0 +1,24 @@
+Estos tienen la capacidad de empaquetar varios pasos en una 
+sola operacion y si algunos de los pasos falla entonces la 
+base de datos no ejecuta el resto de los pasos restantes y 
+esto afecta la base de datos en absoluto, tambien cabe 
+resalta que el ROLLBACK nos devuelve todo si algo quedo mal 
+
+La estructura de las transacciones se compone de lo sgte: 
+
+BEGIN;
+<Intrucciones>
+COMMIT|ROLLBACK
+
+Consejo: desactivar el auto commit en la esquina superior
+
+BEGIN;
+INSERT INTO  public.estacion(nombre,direccion)
+VALUES('Estación Transacción',' 1');
+ 
+INSERT INTO  public.tren(modelo,capacidad)
+VALUES('Modelo Transacción','2');
+ 
+COMMIT;
+
+Aqui estamos haciendo varias inserciones a la base de datos 

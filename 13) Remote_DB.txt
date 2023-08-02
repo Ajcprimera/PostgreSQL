@@ -1,0 +1,23 @@
+Para poder conectar nuestra base de datos de forma remota
+debemos primero instalar la extension que nos a ayudar a hacer 
+esa conexion, debido a postgre no lo tiene instalado de forma 
+predeterminada
+
+CREATE EXTENSION dblink; 
+
+este es el query para instalar el la conexion remota 
+
+SELECT * FROM
+dblink('dbname=remota 
+  port=5432 
+  host=127.0.0.1 
+  user=xxxx 
+  password=xxxx',
+  'SELECT id, fecha FROM vip;')
+  AS datos_remotos(id integer, "date" date);
+
+este es la forma de conectar la bd de forma remota 
+
+Nota: Hay que tener en cuenta cual usuario va a hacer la 
+conexion remota, ya que se le debe dar los privilegios 
+necesarios para la conexion

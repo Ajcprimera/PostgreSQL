@@ -1,0 +1,32 @@
+Estos tambien son conocidos como disparadores y son ejecutados 
+cuando hacemos una consulta (INSERT, UPDATE o DELETE), de 
+estas intervienen 4 elementos principales: 
+
+1. Una Tabla
+2. Una consulta sobre una tabla
+3. Una funcion PL
+4. El propio trigger
+
+Vamos a tomar como ejemplo cuando un usuario quiera insertar 
+datos en la tabla y nosotros queramos saber en que momento 
+el usuario inserto aquel dato para tener en cuenta un registro 
+
+Para poder crear el trigger primero debemos debemos crear la 
+tabla en donde tendra los registros que vaya ingresando el 
+usuario, luego creamos la funcion pl que nos ayudara a hacer 
+los registros que vaya ingresando el usuario en cada insert o 
+la condicion de re3gistro que deseemos 
+
+Ahora para crear el trigger, debemos ir a la seccion de 
+trigggers funtions y creamos el trigger 
+
+Ejemplo:
+CREATE TRIGGER trigger_registrador
+AFTER INSERT
+ON pasajeros
+FOR EACH ROW (por cada insercion hecha 1 en 1)
+EXECUTE PROCEDURE registrador();
+
+y ahora podemos comprobarla haciendo una insercion en la tabla 
+y se podra visualizar en la otra tabla el registro del dato 
+ingresado

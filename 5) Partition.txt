@@ -1,0 +1,12 @@
+Que es?
+
+Las particiones nos ayudan a separar de una manera fisica los 
+datos de una misma tabla, permitiendo particionar estas
+particiones en diferentes partes del disco, ademas, es particiones
+tienen una estructura logica (nos ayuda esta estructura haciendo
+select cuando deseamos hacer una consulta), cabe resaltar que 
+estas particiones son tablas mas pequeñas dentro de un rango 
+definido, este rango puede ser fecha u algun tipo de dato 
+
+Nota: no es posible crear llaves primarias con tablas particionadas
+ya que la informacion esta dividida

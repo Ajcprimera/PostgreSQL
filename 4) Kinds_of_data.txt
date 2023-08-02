@@ -1,0 +1,23 @@
+En postgre con 2 tipos de datos, los principales y los 
+especiales 
+
+* Principales:
+
+- Numéricos: Numeros enteros, Numeros Decimales, Seriales
+- Monetarios: Cantidad de moneda
+- Texto: almacenar cadenas y texto, existen tres VARCHAR, 
+CHAR, TEXT
+- Binario: 1 y 0
+- Fecha/Hora: Para almacenar Fechas y/o Horas, DATE TYPE, 
+TIME TYPE, TIMESTAMP, INTERVAL
+- Boolean: Verdadero o Falso
+
+*Especiales:
+
+- Geometricos: Permiten calcular distancias y areas mediante los 
+puntos X y Y 
+- Direccion de red: Almacena ip y calculos de mascars de red 
+- Texto tipo bit: Permite hacer calculos en otros sistemas, 
+como lo es el hexadecimal o binario
+- XML, JSON: Son formatos como lo es las APIS 
+- Arreglos: Estos son vectores y matrices

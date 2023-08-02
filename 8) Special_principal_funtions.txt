@@ -1,0 +1,63 @@
+Estas funciones especiales mayormente unicamente para postgre 
+entre estas estan:
+
+* ON CONFLICT DO: esta nos ayuda a solucionar problemas cuando 
+estamos  haciendo una insercion o modificacion de datos que no 
+podamos y luego hacemos la actualizacion correcta
+
+ejemplo: 
+
+INSERT INTO tren
+VALUES(1, 'Modelo modificado', 1000)
+ON CONFLICT(id) 
+DO UPDATE SET modelo = EXCLUDED.modelo, capacidad = EXCLUDED.capacidad;
+
+* RETURNING: nos permite devolver todos los cambios realizados 
+en la base de datos
+
+ejemplo:
+
+INSERT INTO tren (modelo, capacidad)
+	 VALUES('modelo x', 100)
+	 RETURNING id;
+
+    INSERT INTO tren (modelo, capacidad)
+	 VALUES('modelo x', 100)
+	 RETURNING id, capacidad; 
+
+     tambien podemos solicitar alguno de los campos 
+
+* LIKE / ILIKE: nos permite hacer busquedas asi de expresiones 
+regulares, la diferencia es que ilike permite hacer busqueda 
+de mayusculas y minisculucas (incluye los 2), ya que like  
+solo incluye 1
+
+ejemplo:
+
+SELECT * FROM PASAJERO
+WHERE pasajero.nombre ILIKE '%O'
+
+%: 1 o cualquier valor
+_: es solamente 1
+
+* IS / IS NOT: nos permite comparar 2 tipos de datos que no 
+sean estandar como los numericos y alfanumericos sino que sean 
+tipo objeto u especiales como null
+
+ejemplo: 
+
+SELECT * FROM PASAJERO
+WHERE pasajero.nombre IS null;
+
+Nota: podemos actualizar los valores correspondientes usando 
+tambien la palabra exclude 
+
+ejemplo: 
+INSERT INTO tren
+VALUES(1, 'Modelo modificado', 1000)
+ON CONFLICT(id) 
+DO UPDATE SET modelo = EXCLUDED.modelo, capacidad = EXCLUDED.capacidad;
+
+el exclude lo estamos utilizando para que sean modificado los 
+valores que deseemos, sin la necesidad de volver a copiar los 
+valores despues del set 
